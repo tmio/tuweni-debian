@@ -57,11 +57,10 @@ publish: build
 	mkdir -p repository/pool/main/
 	cp ${FOLDER}.deb repository/pool/main/
 	mkdir -p repository/dists/stable/main/binary-all
-	cd repository
-	dpkg-scanpackages --arch all pool/ > dists/stable/main/binary-all/Packages
-	cat dists/stable/main/binary-amd64/Packages | gzip -9 > dists/stable/main/binary-amd64/Packages.gz
-	cd dists/stable
-	../../../generate-release.sh > Release
-
+	cd repository; dpkg-scanpackages --arch all pool/ > dists/stable/main/binary-all/Packages
+	cd repository; cat dists/stable/main/binary-all/Packages | gzip -9 > dists/stable/main/binary-all/Packages.gz
+	cd repository/dists/stable; ../../../generate-release.sh > Release
+	cat repository/dists/stable/Release | gpg --default-key tmio -abs > repository/dists/stable/Release.gpg
+	cat repository/dists/stable/Release | gpg --default-key tmio -abs --clearsign > repository/dists/stable/InRelease
 
 
