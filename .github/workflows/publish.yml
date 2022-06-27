@@ -18,3 +18,7 @@ jobs:
           gpg_private_key: ${{ secrets.PGP_PRIVATE_KEY }}
       - run: |
           make publish
+          git add -A
+          git commit -m "publish"
+          git push origin main
+
