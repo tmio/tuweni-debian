@@ -10,7 +10,7 @@ clean:
 	rm -Rf tuweni-bin-*
 
 tuweni-bin-${VERSION}-incubating.tgz:
-	wget https://dlcdn.apache.org/incubator/tuweni/${VERSION}-incubating/tuweni-bin-${VERSION}-incubating.tgz
+	wget -q https://dlcdn.apache.org/incubator/tuweni/${VERSION}-incubating/tuweni-bin-${VERSION}-incubating.tgz
 	
 tuweni-bin-${VERSION}: tuweni-bin-${VERSION}-incubating.tgz
 	tar zxf tuweni-bin-${VERSION}-incubating.tgz
