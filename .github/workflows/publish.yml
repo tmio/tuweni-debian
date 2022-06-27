@@ -8,9 +8,11 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      PGP_PRIVATE_KEY: ${{ secrets.PGP_PRIVATE_KEY }}
     steps:
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v5
+        with:
+          gpg_private_key: ${{ secrets.PGP_PRIVATE_KEY }}
       - run: |
-          echo $PGP_PRIVATE_KEY | gpg --import
           make publish
