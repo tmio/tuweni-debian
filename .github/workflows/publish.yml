@@ -8,6 +8,8 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      PGP_PRIVATE_KEY: ${{ secrets.PGP_PRIVATE_KEY }}
     steps:
       - run: |
           echo $PGP_PRIVATE_KEY | gpg --import
