@@ -1,9 +1,10 @@
-on: workflow_dispatch
-  inputs:
-    version:
-      description: 'Apache Tuweni version'     
-      required: true
-      default: '2.2.0'
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Apache Tuweni version'     
+        required: true
+        default: '2.2.0'
 jobs:
   publish:
     runs-on: ubuntu-latest
