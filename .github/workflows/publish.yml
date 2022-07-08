@@ -17,8 +17,15 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.PGP_PRIVATE_KEY }}
       - run: |
+          export VERSION=${{ github.event.inputs.version }}
           make publish
-          git add -A
-          git commit -m "publish"
-          git push origin main
+      - name: Run the Action
+        uses: devops-infra/action-commit-push@v0.9.0
+        with:
+          github_token: "${{ secrets.TOKEN }}"
+          add_timestamp: true
+          commit_prefix: "[AUTO]"
+          commit_message: "Commit changes ${{ github.event.inputs.version }}"
+          force: false
+          target_branch: main
 

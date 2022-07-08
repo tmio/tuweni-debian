@@ -1,8 +1,8 @@
 NAME:=tuweni
-VERSION:=2.2.0
+VERSION?=2.2.0
 REVISION:=1
 ARCH:=all
-FOLDER:=${NAME}_${VERSION}-${REVISION}_${ARCH}
+FOLDER:=repository/${NAME}_${VERSION}-${REVISION}_${ARCH}
 
 .PHONY: clean
 clean:
