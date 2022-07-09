@@ -1,12 +1,12 @@
 # Tuweni Debian repository
 
-This is the repository hosting the scripts and jobs to update the Tuweni binaries APT repository that is hosted at [https://deb.tmio.io].
+This is the repository hosting the scripts and jobs to update the Tuweni binaries APT repository that is hosted at https://deb.tmio.io.
 
 Feel free to open issues and provide feedback on Github.
 
 # Usage
 
-Visit [https://deb.tmio.io] or [index.html] for instructions.
+Visit https://deb.tmio.io or [index.html](/index.html) for instructions.
 
 # License
 
