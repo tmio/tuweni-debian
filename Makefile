@@ -55,6 +55,7 @@ build: ${FOLDER}.deb
 .PHONY: publish
 publish: build
 	mkdir -p repository/pool/main/
+	cp tmio.gpg repository/
 	mv ${FOLDER}.deb repository/pool/main/
 	mkdir -p repository/dists/stable/main/binary-all
 	cd repository; dpkg-scanpackages --arch all pool/ > dists/stable/main/binary-all/Packages
