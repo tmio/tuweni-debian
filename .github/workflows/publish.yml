@@ -19,13 +19,15 @@ jobs:
       - run: |
           export VERSION=${{ github.event.inputs.version }}
           make publish
-      - name: Run the Action
-        uses: devops-infra/action-commit-push@v0.9.0
+      - name: upload to S3
+        uses: jakejarvis/s3-sync-action@v0.5.1
         with:
-          github_token: "${{ secrets.TOKEN }}"
-          add_timestamp: true
-          commit_prefix: "[AUTO]"
-          commit_message: "Commit changes ${{ github.event.inputs.version }}"
-          force: false
-          target_branch: main
+          args: --acl public-read --follow-symlinks
+        env:
+          AWS_S3_BUCKET: deb.tmio.io
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-2'
+          SOURCE_DIR: 'repository'
+
 
