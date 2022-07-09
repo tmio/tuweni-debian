@@ -55,7 +55,7 @@ build: ${FOLDER}.deb
 .PHONY: publish
 publish: build
 	mkdir -p repository/pool/main/
-	cp ${FOLDER}.deb repository/pool/main/
+	mv ${FOLDER}.deb repository/pool/main/
 	mkdir -p repository/dists/stable/main/binary-all
 	cd repository; dpkg-scanpackages --arch all pool/ > dists/stable/main/binary-all/Packages
 	cd repository; cat dists/stable/main/binary-all/Packages | gzip -9 > dists/stable/main/binary-all/Packages.gz
