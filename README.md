@@ -1,22 +1,21 @@
-# Set up
+# Tuweni Debian repository
 
-Import the PGP key of the repository:
-```
-curl -fsSL TODO | sudo gpg --dearmor -o /etc/apt/keyrings/tmio.gpg
-```
+This is the repository hosting the scripts and jobs to update the Tuweni binaries APT repository that is hosted at [https://deb.tmio.io].
 
-Add this repository to your repositories:
-```
-echo "deb [arch=all signed-by=/etc/apt/keyrings/tmio.gpg] TODO/repository stable main" | sudo tee /etc/apt/sources.list.d/tmio.list
-```
+Feel free to open issues and provide feedback on Github.
 
-Update:
-```
-sudo apt-get update
-```
+# Usage
 
-Install tuweni:
-```
-sudo apt-get install tuweni
-```
+Visit [https://deb.tmio.io] or [index.html] for instructions.
+
+# License
+
+Copyright 2022 The Machine Consultancy LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
 
