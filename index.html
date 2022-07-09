@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>The Machine Consultancy Debian Repository</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="px-4 py-5 my-5">
+    <h1 class="display-5 fw-bold text-center">The Machine Consultancy Debian Repository</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4 text-center">This repository contains binaries for Apache Tuweni.</p>
+      <p class="mb-6">
+        To use this repository, follow along those instructions:<br/>
+        <ol>
+          <li>Install prerequisites:<br/>
+              <pre><code>sudo apt-get update
+sudo apt-get install \
+   ca-certificates \
+   curl \
+   gnupg \
+   lsb-release
+</code></pre>
+          </li>
+          <li>Add the repository GPG key to your keyring:<br/>
+              <pre><code>sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.tmio.io/tmio.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/tmio.gpg
+</code></pre>
+          </li>
+          <li>Add the repository to your sources:<br/>
+              <pre><code>echo "deb [arch=all signed-by=/etc/apt/keyrings/tmio.gpg] https://deb.tmio.io stable main" | sudo tee /etc/apt/sources.list.d/tmio.list > /dev/null</code></pre>
+          </li>
+	  <li>Update your sources:<br/>
+              <pre><code>sudo apt-get update</code></pre>
+          </li>
+          <li>Install Tuweni:<br/>
+              <pre><code>sudo apt-get install tuweni</code></pre>
+          </li>
+        </ol>
+      </p>
+    </div>
+  </div>
+  </body>
+</html>
