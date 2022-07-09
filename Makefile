@@ -56,7 +56,7 @@ build: ${FOLDER}.deb
 publish: build
 	mkdir -p repository/pool/main/
 	cp tmio.gpg repository/
-        cp index.html repository/
+	cp index.html repository/
 	mv ${FOLDER}.deb repository/pool/main/
 	mkdir -p repository/dists/stable/main/binary-all
 	cd repository; dpkg-scanpackages --arch all pool/ > dists/stable/main/binary-all/Packages
